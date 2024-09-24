@@ -4,4 +4,4 @@
 2) Recoil
 3) Jotai
 4) Zustand
-5) Context API + useReducer
+5) Context API + useReducer + immer
