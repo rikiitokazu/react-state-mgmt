@@ -1,4 +1,4 @@
-# React State Managment Examples
+# React State Management Examples
 
 1) Redux
 2) Recoil
