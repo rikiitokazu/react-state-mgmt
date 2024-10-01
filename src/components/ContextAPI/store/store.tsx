@@ -1,4 +1,3 @@
-import { useReducer } from "react";
 import { produce } from "immer";
 
 
@@ -15,18 +14,26 @@ export type ContextState = {
 }
 export type ContextActions = {
     state: any
-    action: any
+    action: {
+        type: string;
+        payload: string
+        newBook: ContextState['favoriteBook']
+    }
 }
 export function AppReducer({state, action}: ContextActions) {
     switch(action.type) {
-        case("CHANGE_VAL"):
-            return produce(state, (draft: any) => {
-                draft[action.fieldName] = action.payload 
+        case("UPDATE_USERNAME"):
+            return produce(state, (draft: ContextState) => {
+                draft.username = action.payload 
             });
-        case("LOGIN"):
-            return produce(state, (draft: any) => {
-                draft.loggedIn = true
+        case("LOG_IN_OUT"):
+            return produce(state, (draft: ContextState) => {
+                draft.loggedIn = !state.loggedIn 
             })
-
+        
+        case("CHANGE_BOOK") :
+             return produce(state, (draft: ContextState) => {
+                draft.favoriteBook = action.newBook
+        })
     }
 }
