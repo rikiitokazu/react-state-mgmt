@@ -1,15 +1,23 @@
+import { createContext, useReducer } from "react"
+import { appReducer, ContextState, ContextActions, contextInitial } from "../store/store"
 
 
+type ContextType = {
+    state: ContextState,
+    dispatch: React.Dispatch<ContextActions>
+}
+export const ContextWrapper = createContext<ContextType>({
+    state: contextInitial,
+    dispatch: () => null,
+})
 
-/**
- * View 1 --> View 2 --> View 3
- * Use props from store in View 1 and View 2 without passing it through View 2
- */
-export default function ContextAPIMain(): JSX.Element {
+// Usually, it's best practice to have two different context for state & dispatch
+export default function ContextAPIMain({children}:{children:React.ReactNode}): JSX.Element {
+    const [state, dispatch] = useReducer(appReducer, contextInitial)
     return (
-        <div>
-            <View1 />
-        </div>
+        <ContextWrapper.Provider value={{state, dispatch}}>
+            {children}
+        </ContextWrapper.Provider>
     )
 
 }
