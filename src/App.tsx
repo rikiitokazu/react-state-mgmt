@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import LandingPage from './LandingPage'
 import ContextAPIExample from './components/ContextAPI'
 import ReduxExample from './components/Redux'
+import RecoilExample from './components/Recoil'
 function App() {
 
   return (
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element= {<LandingPage />} /> 
         <Route path = "/redux" element = {<ReduxExample />} />
-        <Route path = "/recoil" element = {<div>Recoil</div>} />
+        <Route path = "/recoil" element = {<RecoilExample />} />
         <Route path = "/jotai" element = {<div>Jotai</div>} />
         <Route path = "/zustand" element = {<div>Zustand</div>} />
         <Route path = "/contextapi" element = {<ContextAPIExample />} />
