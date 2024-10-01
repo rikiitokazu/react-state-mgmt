@@ -1,9 +1,9 @@
 import { atom, selector } from "recoil";
 
-export const userInfo = atom<{user: string, password: string}>({
+export const userInfo = atom<{username: string, password: string}>({
     key:"login",
     default: {
-        user: "",
+        username: "",
         password: ""
     }
 })
@@ -11,15 +11,15 @@ export const userInfo = atom<{user: string, password: string}>({
 export const loggedIn = selector<boolean>({
     key:"loggedIn", 
     get: ({get}) => {
-        const { user, password } = get(userInfo)
-        return user === "user" && password === "123"
+        const { username, password } = get(userInfo)
+        return username === "user" && password === "123"
     }
 }) 
 
 type BookTypes = {
-    title: "", 
-    author: "",
-    genre:""
+    title: string, 
+    author: string,
+    genre: string, 
 }[]
 
 export const favoriteBooks = atom<BookTypes>({
