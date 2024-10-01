@@ -6,7 +6,7 @@ import ContextAPIMain from "./features/main";
 import View1 from "./features/View1";
 
 
-export default function ContextAPI() :JSX.Element {
+export default function ContextAPIExample() :JSX.Element {
     return (
         <ContextAPIMain>
             <div>Context API + useReducer + Immer example</div>
