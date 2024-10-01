@@ -1,0 +1,12 @@
+/**
+* View 1 --> View 2 --> View 3
+* Use props from store in View 1 and View 2 without passing it through View 2
+* Zustand
+* - no provider
+* - minalistic, subscription model 
+*/
+export default function ZustandExample() {
+   return (
+           <div>Zustand Example</div>
+   )
+}
