@@ -5,6 +5,7 @@ import { atom } from "jotai";
 // - have states in central store
 // - harder to access the actual state
 // - very lightweight, simple; avoids prop drilling
+// - a "replacement" for useState
 // ============================
 
 export const usernameAtom = atom<string>("");
