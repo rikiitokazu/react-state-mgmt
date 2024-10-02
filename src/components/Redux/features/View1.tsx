@@ -11,7 +11,7 @@ export function View1(): JSX.Element {
     <div>
        <div>Username: <input value={username} onChange = {(e) => dispatch(setUser(e.target.value))} /> 
       </div> 
-      <div>Password: </div>
+      <div>Password:<input value={username} onChange = {(e) => dispatch(setUser(e.target.value))} /> </div>
     </div>
  )
 }
