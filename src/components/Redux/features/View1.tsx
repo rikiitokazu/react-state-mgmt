@@ -5,13 +5,14 @@ import { RootState } from "../store/reduxStore"
 export function View1(): JSX.Element {
     const dispatch = useDispatch()
     const username = useSelector((state: RootState) => state.login.username)
+    const password = useSelector((state: RootState) => state.login.password)
     
     // TODO: Optimizaiton, how to not re-render the entire component upon dispatch
  return (
     <div>
        <div>Username: <input value={username} onChange = {(e) => dispatch(setUser(e.target.value))} /> 
       </div> 
-      <div>Password:<input value={username} onChange = {(e) => dispatch(setUser(e.target.value))} /> </div>
+      <div>Password:<input value={password} onChange = {(e) => dispatch(setUser(e.target.value))} /> </div>
     </div>
  )
 }

@@ -14,8 +14,8 @@ type ZustandState = {
     username: string,
     password: string,
     favoriteBooks: FavoriteBook[];
-    setUsername: (username: ChangeEvent<HTMLInputElement>) => void;
-    setPassword: (password: ChangeEvent<HTMLInputElement>) => void;
+    setUsername: (username: string) => void;
+    setPassword: (password: string) => void;
     addBook: (book: FavoriteBook) => void;
     isLoggedIn: () => boolean
 }
@@ -26,12 +26,12 @@ export const useZustandState = create<ZustandState>((set, get) => ({
     favoriteBooks: [],
     setUsername: (user) => {
         set((state) => ({
-            username: user as unknown as string, // clarify best practice
+            username: user, // clarify best practice
         }))
     },
     setPassword: (user) => {
         set((state) => ({
-            password: user as unknown as string,
+            password: user,
         }))
     },
     addBook: (book) => {

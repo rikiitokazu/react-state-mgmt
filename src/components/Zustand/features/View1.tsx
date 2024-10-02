@@ -6,8 +6,11 @@ export function View1(): JSX.Element {
     return (
         <div>
           <header>This is view1</header> 
-          Username: <input value = {username} onChange = {setUsername} />
-          Password: <input value ={password} onChange = {setPassword} />
+          Username: <input value = {username} 
+          onChange = {(e) => setUsername(e.target.value as string)} />
+          
+          Password: <input value ={password} 
+          onChange = {(e) => setPassword(e.target.value as string)} />
           <View2 />
         </div>
     )
