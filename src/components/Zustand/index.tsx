@@ -5,8 +5,12 @@
 * - no provider
 * - minalistic, subscription model 
 */
+import { View1 } from "./features/View1"
 export default function ZustandExample() {
    return (
-           <div>Zustand Example</div>
+        <>
+        <header>Zustand</header>
+        <View1 />
+        </>
    )
 }

@@ -2,6 +2,7 @@
 // Zustand Store
 // - centralized store, uses 'set' and 'get' keywords
 // ============================
+import { ChangeEvent } from "react";
 import { create } from "zustand";
 
 type FavoriteBook = {
@@ -13,6 +14,8 @@ type ZustandState = {
     username: string,
     password: string,
     favoriteBooks: FavoriteBook[];
+    setUsername: (username: ChangeEvent<HTMLInputElement>) => void;
+    setPassword: (password: ChangeEvent<HTMLInputElement>) => void;
     addBook: (book: FavoriteBook) => void;
     isLoggedIn: () => boolean
 }
@@ -21,6 +24,16 @@ export const useZustandState = create<ZustandState>((set, get) => ({
     username: "",
     password: "",
     favoriteBooks: [],
+    setUsername: (user) => {
+        set((state) => ({
+            username: user as unknown as string, // clarify best practice
+        }))
+    },
+    setPassword: (user) => {
+        set((state) => ({
+            password: user as unknown as string,
+        }))
+    },
     addBook: (book) => {
         set((state) => ({
             favoriteBooks:[...state.favoriteBooks, {...book}]
