@@ -2,12 +2,15 @@ import { atom } from "jotai";
 // ============================
 // JOTAI
 // - uses atomic states
+// - have states in central store
+// - harder to access the actual state
+// - very lightweight, simple; avoids prop drilling
 // ============================
 
-export const username = atom<string>("");
-export const password = atom<string>("");
+export const usernameAtom = atom<string>("");
+export const passwordAtom = atom<string>("");
 
-export const loggedIn = atom<boolean>(false)
+export const loggedInAtom = atom<boolean>(false)
 
 type BookType = {
     title: string,
@@ -15,4 +18,4 @@ type BookType = {
     genre: string;
 }
 
-export const allBooks = atom<BookType[]>([])
+export const allBooksAtom = atom<BookType[]>([])
