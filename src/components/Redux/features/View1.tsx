@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { setUser } from "../store/loginSlice" 
+import { setUser, setPassword } from "../store/loginSlice"
 import { RootState } from "../store/reduxStore"
 
 export function View1(): JSX.Element {
@@ -10,9 +10,11 @@ export function View1(): JSX.Element {
     // TODO: Optimizaiton, how to not re-render the entire component upon dispatch
  return (
     <div>
-       <div>Username: <input value={username} onChange = {(e) => dispatch(setUser(e.target.value))} /> 
+       <div>Username: <input value={username} 
+       onChange = {(e) => dispatch(setUser(e.target.value))} /> 
       </div> 
-      <div>Password:<input value={password} onChange = {(e) => dispatch(setUser(e.target.value))} /> </div>
+      <div>Password:<input value={password} 
+      onChange = {(e) => dispatch(setPassword(e.target.value))} /> </div>
     </div>
  )
 }
