@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { setUser, setPassword } from "../store/loginSlice"
 import { RootState } from "../store/reduxStore"
+import { View2 } from "./View2"
 
 export function View1(): JSX.Element {
     const dispatch = useDispatch()
@@ -15,6 +16,8 @@ export function View1(): JSX.Element {
       </div> 
       <div>Password:<input value={password} 
       onChange = {(e) => dispatch(setPassword(e.target.value))} /> </div>
+      
+      <View2 />
     </div>
  )
 }

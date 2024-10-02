@@ -1,15 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+
+type FavBookType = {
+    title: string;
+    author: string;
+    genre: string
+}
 type LoginType = {
     username: string;
     password: string;
     loggedIn: boolean;
-    favoriteBooks: {
-        title: string,
-        author: string,
-        genre: string
-    }[]
+    favoriteBooks: FavBookType[];
 }
+
 const reduxInitial : LoginType = {
     username: "", 
     password: "", 
@@ -25,10 +28,13 @@ export const loginSlice = createSlice({
         },
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload
+        },
+        setBooks: (state, action: PayloadAction<FavBookType>) => {
+            state.favoriteBooks = [...state.favoriteBooks, {...action.payload}]
         }
     }
 
 })
 
-export const { setUser, setPassword } = loginSlice.actions
+export const { setUser, setPassword, setBooks } = loginSlice.actions
 export default loginSlice.reducer
